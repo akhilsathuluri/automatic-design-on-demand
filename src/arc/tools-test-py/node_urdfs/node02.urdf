@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot  name="node02" >
+ <material  name="blue" >
+  <color  rgba="0 0 0.8 1.0" />
+ </material>
+ <material  name="red" >
+  <color  rgba="0.8 0 0 1.0" />
+ </material>
+ <material  name="black" >
+  <color  rgba="0.0 0.0 0.0 1.0" />
+ </material>
+ <link  name="root_mod" >
+  <visual >
+   <origin  rpy="0 0 0"  xyz="0 0 0" />
+   <material  name="black" />
+   <geometry >
+    <cylinder  radius="0.05"  length="0.02" />
+   </geometry>
+  </visual>
+ </link>
+ <link  name="linkMod_1" >
+  <inertial >
+   <origin  rpy="-0.0 1.5707963267948966 0.0"  xyz="-8.881784197001253e-18 0.0 0.04" />
+   <mass  value="0.2" />
+   <inertia  ixz="0.0"  iyz="0.0"  iyy="0.0"  ixy="0.0"  ixx="0.0011127270000000002"  izz="0.0011127270000000002" />
+  </inertial>
+  <visual >
+   <origin  rpy="-0.0 1.5707963267948966 0.0"  xyz="-8.881784197001253e-18 0.0 0.04" />
+   <material  name="blue" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/l2_module.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="revolute"  name="joint_1_revolute" >
+  <parent  link="root_mod" />
+  <child  link="linkMod_1" />
+  <origin  rpy="0 0 0"  xyz="0.0 0.0 0.01" />
+  <axis  xyz="0.0 0.0 1.0" />
+ </joint>
+ <transmission  name="act_joint_1_revolute" >
+  <type  xmltext="SimpleTransmission" >
+   SimpleTransmission
+  </type>
+  <actuator  name="trans_joint_1_revolute" >
+   <mechanicalreduction  xmltext="1" >
+    1
+   </mechanicalreduction>
+  </actuator>
+  <joint  name="joint_1_revolute" />
+ </transmission>
+ <link  name="eef" />
+ <joint  type="fixed"  name="eef_joint" >
+  <parent  link="linkMod_1" />
+  <child  link="eef" />
+  <origin  rpy="0 0 0"  xyz="-8.881784197001253e-18 0.148 0.04" />
+  <axis  xyz="0.0 1.0 0.0" />
+ </joint>
+</robot>
+

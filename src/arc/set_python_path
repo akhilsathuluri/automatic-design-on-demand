@@ -1,0 +1,1 @@
+ export PYTHONPATH=/opt/drake/lib/python3.8/site-packages:${PYTHONPATH}

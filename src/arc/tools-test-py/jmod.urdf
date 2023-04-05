@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot  name="jmod" >
+ <material  name="blue" >
+  <color  rgba="0 0 0.8 1.0" />
+ </material>
+ <material  name="red" >
+  <color  rgba="0.8 0 0 1.0" />
+ </material>
+ <material  name="black" >
+  <color  rgba="0.0 0.0 0.0 1.0" />
+ </material>
+ <link  name="jmod" >
+  <visual >
+   <origin  rpy="0 0 0"  xyz="0 0 0" />
+   <material  name="red" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/j_module.obj" />
+   </geometry>
+  </visual>
+ </link>
+</robot>
+

@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<robot  name="humanoid_arm_auto" >
+ <material  name="blue" >
+  <color  rgba="0 0 0.8 1.0" />
+ </material>
+ <material  name="red" >
+  <color  rgba="0.8 0 0 1.0" />
+ </material>
+ <link  name="base_link" >
+  <visual >
+   <origin  xyz="0 0 0"  rpy="0 0 0" />
+   <material  name="red" />
+   <geometry >
+    <cylinder  radius="0.1"  length="0.05" />
+   </geometry>
+  </visual>
+ </link>
+
+ <link  name="link1" >
+  <inertial >
+   <origin  xyz="0 0 0.058"  rpy="0 0 0" />
+   <mass  value="1.1734476879688598" />
+   <inertia  ixy="0"  ixz="0"  iyz="0"  izz="0.00023468953759377196"  iyy="0.00526330402976966"  ixx="0.00526330402976966" />
+  </inertial>
+  <visual >
+   <origin  xyz="0 0 0.058"  rpy="0 0 0" />
+   <material  name="blue" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.116" />
+   </geometry>
+  </visual>
+  <!-- <collision >
+   <origin  xyz="0 0 0.058"  rpy="0 0 0" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.116" />
+   </geometry>
+  </collision> -->
+ </link>
+ <link  name="link2" >
+  <inertial >
+   <origin  xyz="0 0 0.045"  rpy="0 0 0" />
+   <mass  value="0.9104335510103221" />
+   <inertia  ixy="0"  ixz="0"  iyz="0"  izz="0.00018208671020206443"  iyy="0.0024581705877278694"  ixx="0.0024581705877278694" />
+  </inertial>
+  <visual >
+   <origin  xyz="0 0 0.045"  rpy="0 0 0" />
+   <material  name="blue" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.09" />
+   </geometry>
+  </visual>
+  <!-- <collision >
+   <origin  xyz="0 0 0.045"  rpy="0 0 0" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.09" />
+   </geometry>
+  </collision> -->
+ </link>
+ <link  name="link3" >
+  <inertial >
+   <origin  xyz="0 0 0.125"  rpy="0 0 0" />
+   <mass  value="2.528982086139784" />
+   <inertia  ixy="0"  ixz="0"  iyz="0"  izz="0.0005057964172279568"  iyy="0.05268712679457883"  ixx="0.05268712679457883" />
+  </inertial>
+  <visual >
+   <origin  xyz="0 0 0.125"  rpy="0 0 0" />
+   <material  name="blue" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.25" />
+   </geometry>
+  </visual>
+  <!-- <collision >
+   <origin  xyz="0 0 0.125"  rpy="0 0 0" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.25" />
+   </geometry>
+  </collision> -->
+ </link>
+ <link  name="link4" >
+  <inertial >
+   <origin  xyz="0 0 0.02"  rpy="0 0 0" />
+   <mass  value="0.40463713378236543" />
+   <inertia  ixy="0"  ixz="0"  iyz="0"  izz="8.092742675647309e-05"  iyy="0.0002158064713505949"  ixx="0.0002158064713505949" />
+  </inertial>
+  <visual >
+   <origin  xyz="0 0 0.02"  rpy="0 0 0" />
+   <material  name="blue" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.04" />
+   </geometry>
+  </visual>
+  <!-- <collision >
+   <origin  xyz="0 0 0.02"  rpy="0 0 0" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.04" />
+   </geometry>
+  </collision> -->
+ </link>
+ <link  name="link5" >
+  <inertial >
+   <origin  xyz="0 0 0.1"  rpy="0 0 0" />
+   <mass  value="2.023185668911827" />
+   <inertia  ixy="0"  ixz="0"  iyz="0"  izz="0.0004046371337823654"  iyy="0.026975808918824368"  ixx="0.026975808918824368" />
+  </inertial>
+  <visual >
+   <origin  xyz="0 0 0.1"  rpy="0 0 0" />
+   <material  name="blue" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.2" />
+   </geometry>
+  </visual>
+  <!-- <collision >
+   <origin  xyz="0 0 0.1"  rpy="0 0 0" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.2" />
+   </geometry>
+  </collision> -->
+ </link>
+ <link  name="link6" >
+  <inertial >
+   <origin  xyz="0 0 0.0"  rpy="0 0 0" />
+   <mass  value="0.0" />
+   <inertia  ixy="0"  ixz="0"  iyz="0"  izz="0.0"  iyy="0.0"  ixx="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="0.0 0.0 0.005"  rpy="0 0 0" />
+   <material  name="blue" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.01" />
+   </geometry>
+  </visual>
+  <!-- <collision >
+   <origin  xyz="0 0 0.0"  rpy="0 0 0" />
+   <geometry >
+    <cylinder  radius="0.001"  length="0.01" />
+   </geometry>
+  </collision> -->
+ </link>
+ <link  name="link7" >
+  <inertial >
+   <origin  xyz="0 0 0.05"  rpy="0 0 0" />
+   <mass  value="1.0115928344559135" />
+   <inertia  ixy="0"  ixz="0"  iyz="0"  izz="0.0002023185668911827"  iyy="0.003371976114853046"  ixx="0.003371976114853046" />
+  </inertial>
+  <visual >
+   <origin  xyz="0 0 0.05"  rpy="0 0 0" />
+   <material  name="blue" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.1" />
+   </geometry>
+  </visual>
+  <!-- <collision >
+   <origin  xyz="0 0 0.05"  rpy="0 0 0" />
+   <geometry >
+    <cylinder  radius="0.02"  length="0.1" />
+   </geometry>
+  </collision> -->
+ </link>
+ <joint  type="fixed"  name="world_weld" >
+  <parent  link="world" />
+  <child  link="base_link" />
+  <origin  xyz="0 0 0"  rpy="0 0 0" />
+  <axis  xyz="0 0 1" />
+ </joint>
+ <joint  type="continuous"  name="joint1" >
+  <parent  link="base_link" />
+  <child  link="link1" />
+  <origin  xyz="0 0 0"  rpy="0 0 0" />
+  <axis  xyz="0 0 1" />
+ </joint>
+ <joint  type="continuous"  name="joint2" >
+  <parent  link="link1" />
+  <child  link="link2" />
+  <origin  xyz="-0.05 0 0.116"  rpy="1.5707 0 0" />
+  <axis  xyz="1 0 0" />
+ </joint>
+ <joint  type="continuous"  name="joint3" >
+  <parent  link="link2" />
+  <child  link="link3" />
+  <origin  xyz="0 0 0.09"  rpy="0 0 0" />
+  <axis  xyz="0 0 1" />
+ </joint>
+ <joint  type="continuous"  name="joint4" >
+  <parent  link="link3" />
+  <child  link="link4" />
+  <origin  xyz="0 0 0.25"  rpy="0 0 0" />
+  <axis  xyz="0 1 0" />
+ </joint>
+ <joint  type="continuous"  name="joint5" >
+  <parent  link="link4" />
+  <child  link="link5" />
+  <origin  xyz="0 0.05 0.04"  rpy="0 0 0" />
+  <axis  xyz="0 0 1" />
+ </joint>
+ <joint  type="continuous"  name="joint6" >
+  <parent  link="link5" />
+  <child  link="link6" />
+  <origin  xyz="0 0 0.2"  rpy="0 0 0" />
+  <axis  xyz="0 1 0" />
+ </joint>
+ <joint  type="continuous"  name="joint7" >
+  <parent  link="link6" />
+  <child  link="link7" />
+  <origin  xyz="0 0 0"  rpy="0 0 0" />
+  <axis  xyz="1 0 0" />
+ </joint>
+</robot>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="ball1">
+  <material name="gray">
+    <color rgba="0.75 0.75 0.75 0.5"/>
+  </material>
+
+  <link name="base_link">
+  <visual>
+    <geometry>
+      <sphere radius="0.1"/>
+    </geometry>
+    <material name="gray"/>
+  </visual>
+    
+  <collision>
+    <geometry>
+      <sphere radius="0.1"/>
+    </geometry>
+    <material name="gray"/>
+  </collision>
+
+  </link>
+</robot>

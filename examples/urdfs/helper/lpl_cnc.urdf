@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name="cnc">
+   <link name="left_gripper">
+     <visual>
+       <origin rpy="0.0 0 0" xyz="0 0 0"/>
+       <geometry>
+         <!-- <mesh filename="../../meshes/lpl_kitchen.obj"/> -->
+         <mesh scale="1 1 1" filename="../../meshes/QUASER_MV205_v3.obj"/>
+       </geometry>
+     </visual>
+    </link>
+</robot>

@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>API &#8212; LCL-Robots 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage" href="usage.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<section id="dod-module">
+<h2>DoD module<a class="headerlink" href="#dod-module" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><span class="target" id="module-DoD"></span><p><strong>LCL-Robots</strong> is a project for the automatic generation of task-specific robots using
+user specified modules. The current library, <cite>design-on-demand (DoD)</cite> provides the enables
+the automatic design process of robots provided the modules and the required task.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="DoD.robotDoD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DoD.</span></span><span class="sig-name descname"><span class="pre">robotDoD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Returns the object for a higher-level class with basic set of tools to setup the modules.
+The higher-level class which consists of <cite>robotModule</cite> class and contains functions to manipulate modules.
+Further houses the necessary functions to manipulate the constructed robots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Required name for the robot that is to be created</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.add_eef">
+<span class="sig-name descname"><span class="pre">add_eef</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.add_eef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an end_effector to the end of the kinematic tree</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.add_module">
+<span class="sig-name descname"><span class="pre">add_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.add_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a given module to the kinematic tree.
+This addition not only adds the corresponding link in the URDF, but also
+adds the corresponding joint based on the module type. So a joint module also
+adds a joint tag and a transmission tag along with the link in the URDF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>module</strong> – The module object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.add_root">
+<span class="sig-name descname"><span class="pre">add_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.add_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a root frame, or a world frame to initiate the kinematic tree</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.computeConnection">
+<span class="sig-name descname"><span class="pre">computeConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.computeConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes spatial tranformations with the previous module in the kinematic tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>module</strong> – The module to be added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.constructURDF">
+<span class="sig-name descname"><span class="pre">constructURDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.constructURDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a the URDF file to disk</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – None by default, but path for the URDF file to be saved can be given</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DoD.robotDoD.helperFuncs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">helperFuncs</span></span><a class="headerlink" href="#DoD.robotDoD.helperFuncs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class containing all the helper functions, i.e., primitive mathematical functions required to
+manipulate the modules.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.helperFuncs.list2space">
+<span class="sig-name descname"><span class="pre">list2space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">com</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.helperFuncs.list2space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a given list into space seperated string required by a URDF file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>com</strong> – An array or list that needs to be converted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.helperFuncs.resolve_axis">
+<span class="sig-name descname"><span class="pre">resolve_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.helperFuncs.resolve_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolves the axis and the angle given a singularity, i.e., if there is a gimbal lock</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>module</strong> – The module object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.helperFuncs.rotX">
+<span class="sig-name descname"><span class="pre">rotX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.helperFuncs.rotX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a rotation matrix for a rotation about the X-axis by a given angle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>angle</strong> – Angle of rotation in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.helperFuncs.rotY">
+<span class="sig-name descname"><span class="pre">rotY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.helperFuncs.rotY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a rotation matrix for a rotation about the Y-axis by a given angle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>angle</strong> – Angle of rotation in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.helperFuncs.rotZ">
+<span class="sig-name descname"><span class="pre">rotZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.helperFuncs.rotZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a rotation matrix for a rotation about the Z-axis by a given angle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>angle</strong> – Angle of rotation in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.helperFuncs.transform_vector">
+<span class="sig-name descname"><span class="pre">transform_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.helperFuncs.transform_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms a given vector about a given axis and angle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> – Axis of rotation</p></li>
+<li><p><strong>angle</strong> – Angle of rotation in radians</p></li>
+<li><p><strong>vector</strong> – The vector which needs to be transformed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.initiate_modules">
+<span class="sig-name descname"><span class="pre">initiate_modules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.initiate_modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiates default modules as per the LCL-Robots projects.
+These modules can be inspected using the meshes folder</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DoD.robotDoD.robotModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">robotModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.robotModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Returns the object with basic set of tools to describe the modules.
+The base class for describing the compatibility rules and module classes.
+Further houses the necessary functions to assemble various modules together.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Required name for the module that is to be created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.visualiseModule">
+<span class="sig-name descname"><span class="pre">visualiseModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meshcat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.visualiseModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualise input module</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>module</strong> – The module instance</p></li>
+<li><p><strong>meshcat</strong> – The initialised meshcat instance</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DoD.robotDoD.visualiseRobot">
+<span class="sig-name descname"><span class="pre">visualiseRobot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urdf_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meshcat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DoD.robotDoD.visualiseRobot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a URDF file, publishes the diagram to a given meshcat server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>urdf_path</strong> – The URDF file path</p></li>
+<li><p><strong>meshcat</strong> – The initialised meshcat instance</p></li>
+<li><p><strong>frames</strong> – Optionally add frame information to the published plant (robot)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section class="page-break" id="node-module">
+<h2>Node module<a class="headerlink" href="#node-module" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><span class="target" id="module-Node"></span><p><strong>LCL-Robots</strong> is a project for the automatic generation of task-specific robots using
+user specified modules. The current library, <cite>design-on-demand (DoD)</cite> provides the enables
+the automatic design process of robots provided the modules and the required task.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Node.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Node.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roboDoD</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is at the intermediate level where it takes in the robot
+module class and uses the compatibility rules from the previous
+class to constructs meaningful robots, this also does all the
+housekeeping of creating multiple instances of the robot environment
+i.e., creating branches and populating the correct branch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>roboDoD</strong> – An instance of the class robotDoD</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Node.Node.computeOptimalDesign">
+<span class="sig-name descname"><span class="pre">computeOptimalDesign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visualise_search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node.computeOptimalDesign" title="Permalink to this definition">¶</a></dt>
+<dd><p>TBD
+Returns the optimal design (composition of modules) using the prescribed search algorithm,
+with respect to the cost function defined</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>visualise_search</strong> – Visualise the search procedure in the meshcat server</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Node.Node.compute_heuristic_cost">
+<span class="sig-name descname"><span class="pre">compute_heuristic_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urdf_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node.compute_heuristic_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the heuristic cost of the selected module.
+This function needs to be modified according to the task definition and
+hence should be overridden for a required problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>urdf_path</strong> – The path of the saved node</p></li>
+<li><p><strong>model_name</strong> – The name of the node</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Node.Node.compute_path_cost">
+<span class="sig-name descname"><span class="pre">compute_path_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node.compute_path_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the path cost of the selected node, i.e., the cost associated
+with the selected modules</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>node</strong> – The selected node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Node.Node.create_instances">
+<span class="sig-name descname"><span class="pre">create_instances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_instances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node.create_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns instances of the a set of same class objects that can be used to expand
+the robot architecture with different modules in each one of them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num_instances</strong> – None, number of instances to be created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Node.Node.expand_node">
+<span class="sig-name descname"><span class="pre">expand_node</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node.expand_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns number of instances of the parent node equal to the number of
+compatible modules</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Node.Node.get_best_child_index">
+<span class="sig-name descname"><span class="pre">get_best_child_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node.get_best_child_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of the best child node based on the cost function defined</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Node.Node.get_compatible_modules">
+<span class="sig-name descname"><span class="pre">get_compatible_modules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Node.Node.get_compatible_modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of compatible modules for the last module in the kinematic tree</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LCL-Robots</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dod-module">DoD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#node-module">Node module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="usage.html" title="previous chapter">Usage</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Akhil Sathuluri.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

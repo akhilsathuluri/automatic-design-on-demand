@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot  name="eef1l" >
+ <material  name="blue" >
+  <color  rgba="0 0 0.8 1.0" />
+ </material>
+ <material  name="red" >
+  <color  rgba="0.8 0 0 1.0" />
+ </material>
+ <material  name="white" >
+  <color  rgba="1.0 1.0 1.0 0.4" />
+ </material>
+ <material  name="black" >
+  <color  rgba="0.0 0.0 0.0 1.0" />
+ </material>
+ <material  name="gray" >
+  <color  rgba="0.42 0.47 0.53 1.0" />
+ </material>
+ <link  name="eef1l" >
+  <visual >
+   <origin  xyz="0 0 0"  rpy="0 0 0" />
+   <material  name="gray" />
+   <geometry >
+    <mesh  filename="../../meshes/eef1l.obj"  scale="0.001 0.001 0.001" />
+   </geometry>
+  </visual>
+ </link>
+</robot>
+

@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<robot  name="test" >
+ <material  name="blue" >
+  <color  rgba="0 0 0.8 1.0" />
+ </material>
+ <material  name="red" >
+  <color  rgba="0.8 0 0 1.0" />
+ </material>
+ <material  name="white" >
+  <color  rgba="1.0 1.0 1.0 0.4" />
+ </material>
+ <material  name="black" >
+  <color  rgba="0.0 0.0 0.0 1.0" />
+ </material>
+ <link  name="root_mod" >
+  <visual >
+   <origin  xyz="0 0 0"  rpy="0 0 0" />
+   <material  name="white" />
+   <geometry >
+    <cylinder  length="0.001"  radius="0.1" />
+   </geometry>
+  </visual>
+ </link>
+ <link  name="baseMod_1" >
+  <inertial >
+   <origin  xyz="0.0 1.2212453270876722e-17 0.055"  rpy="1.5707963267948963 0.0 0.0" />
+   <mass  value="1.245" />
+   <inertia  izz="0.003107"  iyy="0.002417"  ixx="0.002797"  ixy="-0.0"  ixz="-0.0"  iyz="1.5e-05" />
+  </inertial>
+  <visual >
+   <origin  xyz="0.0 1.2212453270876722e-17 0.055"  rpy="1.5707963267948963 0.0 0.0" />
+   <material  name="black" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/base-big-360.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_1_fixed" >
+  <parent  link="root_mod" />
+  <child  link="baseMod_1" />
+  <origin  xyz="0.0 0.0 0.01"  rpy="0 0 0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="connMod_2" >
+  <inertial >
+   <origin  xyz="-1.3766765505351941e-17 0.0 0.062"  rpy="-0.0 1.5707963267948966 0.0" />
+   <mass  value="0.032" />
+   <inertia  izz="1.2e-05"  iyy="1.1e-05"  ixx="2.1e-05"  ixy="0.0"  ixz="0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.3766765505351941e-17 0.0 0.062"  rpy="-0.0 1.5707963267948966 0.0" />
+   <material  name="white" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/connector-0.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="revolute"  name="joint_2_revolute" >
+  <parent  link="baseMod_1" />
+  <child  link="connMod_2" />
+  <origin  xyz="-0.0175 2.964295475749168e-17 0.1335"  rpy="0 0 0" />
+  <axis  xyz="0.0 0.0 1.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <transmission  name="act_joint_2_revolute" >
+  <type  xmltext="SimpleTransmission" >
+   SimpleTransmission
+  </type>
+  <actuator  name="trans_joint_2_revolute" >
+   <mechanicalreduction  xmltext="1" >
+    1
+   </mechanicalreduction>
+  </actuator>
+  <joint  name="joint_2_revolute" />
+ </transmission>
+ <link  name="linkMod_3" >
+  <inertial >
+   <origin  xyz="-1.3766765505351941e-17 0.0 -0.062"  rpy="0.0 -1.5707963267948966 0.0" />
+   <mass  value="0.167" />
+   <inertia  izz="0.000331"  iyy="0.000322"  ixx="2.7e-05"  ixy="0.0"  ixz="0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.3766765505351941e-17 0.0 -0.062"  rpy="0.0 -1.5707963267948966 0.0" />
+   <material  name="blue" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/link-150.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_3_fixed" >
+  <parent  link="connMod_2" />
+  <child  link="linkMod_3" />
+  <origin  xyz="-4.44089209850063e-19 0.0 0.0020000000000000018"  rpy="0 0 0" />
+  <axis  xyz="-0.0 0.0 1.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="jointMod_4" >
+  <inertial >
+   <origin  xyz="-1.1546319456101627e-17 0.0 0.052"  rpy="-0.0 1.5707963267948966 0.0" />
+   <mass  value="0.184" />
+   <inertia  izz="9e-05"  iyy="7.8e-05"  ixx="7.8e-05"  ixy="-1.3e-05"  ixz="-0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.1546319456101627e-17 0.0 0.052"  rpy="-0.0 1.5707963267948966 0.0" />
+   <material  name="red" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/90-joint.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_4_fixed" >
+  <parent  link="linkMod_3" />
+  <child  link="jointMod_4" />
+  <origin  xyz="3.3306690738754695e-17 0.0 0.15"  rpy="0 0 0" />
+  <axis  xyz="0.0 0.0 1.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="connMod_5" >
+  <inertial >
+   <origin  xyz="-1.3766765505351941e-17 -0.062 0.0"  rpy="0.0 0.0 1.5707963267948963" />
+   <mass  value="0.032" />
+   <inertia  izz="1.2e-05"  iyy="1.1e-05"  ixx="2.1e-05"  ixy="0.0"  ixz="0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.3766765505351941e-17 -0.062 0.0"  rpy="0.0 0.0 1.5707963267948963" />
+   <material  name="white" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/connector-0.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="revolute"  name="joint_5_revolute" >
+  <parent  link="jointMod_4" />
+  <child  link="connMod_5" />
+  <origin  xyz="-1.1546319456101627e-17 -0.052 0.052"  rpy="0 0 0" />
+  <axis  xyz="0.0 -1.0 0.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <transmission  name="act_joint_5_revolute" >
+  <type  xmltext="SimpleTransmission" >
+   SimpleTransmission
+  </type>
+  <actuator  name="trans_joint_5_revolute" >
+   <mechanicalreduction  xmltext="1" >
+    1
+   </mechanicalreduction>
+  </actuator>
+  <joint  name="joint_5_revolute" />
+ </transmission>
+ <link  name="linkMod_6" >
+  <inertial >
+   <origin  xyz="-1.3766765505351941e-17 0.062 0.0"  rpy="0.0 0.0 -1.5707963267948963" />
+   <mass  value="0.05" />
+   <inertia  izz="0.000206"  iyy="0.000206"  ixx="6.5e-05"  ixy="0.0"  ixz="0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.3766765505351941e-17 0.062 0.0"  rpy="0.0 0.0 -1.5707963267948963" />
+   <material  name="blue" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/link-100.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_6_fixed" >
+  <parent  link="connMod_5" />
+  <child  link="linkMod_6" />
+  <origin  xyz="-4.44089209850063e-19 -0.0020000000000000018 0.0"  rpy="0 0 0" />
+  <axis  xyz="-0.0 -1.0 0.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="jointMod_7" >
+  <inertial >
+   <origin  xyz="-1.1546319456101627e-17 -0.052 0.0"  rpy="0.0 0.0 1.5707963267948963" />
+   <mass  value="0.184" />
+   <inertia  izz="9e-05"  iyy="7.8e-05"  ixx="7.8e-05"  ixy="-1.3e-05"  ixz="-0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.1546319456101627e-17 -0.052 0.0"  rpy="0.0 0.0 1.5707963267948963" />
+   <material  name="red" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/90-joint.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_7_fixed" >
+  <parent  link="linkMod_6" />
+  <child  link="jointMod_7" />
+  <origin  xyz="2.2204460492503132e-17 -0.1 0.0"  rpy="0 0 0" />
+  <axis  xyz="0.0 -1.0 0.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="connMod_8" >
+  <inertial >
+   <origin  xyz="0.02 4.440892098500626e-18 0.0"  rpy="0.0 0.0 -1.5707963267948963" />
+   <mass  value="0.263" />
+   <inertia  izz="0.000125"  iyy="0.00023"  ixx="0.000226"  ixy="0.0"  ixz="-0.0"  iyz="-1.5e-05" />
+  </inertial>
+  <visual >
+   <origin  xyz="0.02 4.440892098500626e-18 0.0"  rpy="0.0 0.0 -1.5707963267948963" />
+   <material  name="white" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/90-connector.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="revolute"  name="joint_8_revolute" >
+  <parent  link="jointMod_7" />
+  <child  link="connMod_8" />
+  <origin  xyz="0.051999999999999984 -0.05200000000000001 0.0"  rpy="0 0 0" />
+  <axis  xyz="1.0 -0.0 0.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <transmission  name="act_joint_8_revolute" >
+  <type  xmltext="SimpleTransmission" >
+   SimpleTransmission
+  </type>
+  <actuator  name="trans_joint_8_revolute" >
+   <mechanicalreduction  xmltext="1" >
+    1
+   </mechanicalreduction>
+  </actuator>
+  <joint  name="joint_8_revolute" />
+ </transmission>
+ <link  name="linkMod_9" >
+  <inertial >
+   <origin  xyz="-1.3766765505351941e-17 0.0 -0.062"  rpy="0.0 -1.5707963267948966 0.0" />
+   <mass  value="0.05" />
+   <inertia  izz="1.6e-05"  iyy="1.3e-05"  ixx="8e-06"  ixy="0.0"  ixz="0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.3766765505351941e-17 0.0 -0.062"  rpy="0.0 -1.5707963267948966 0.0" />
+   <material  name="blue" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/link-50.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_9_fixed" >
+  <parent  link="connMod_8" />
+  <child  link="linkMod_9" />
+  <origin  xyz="0.02 4.440892098500626e-18 0.06"  rpy="0 0 0" />
+  <axis  xyz="0.0 0.0 1.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="jointMod_10" >
+  <inertial >
+   <origin  xyz="-1.1546319456101627e-17 0.0 0.052"  rpy="-0.0 1.5707963267948966 0.0" />
+   <mass  value="0.184" />
+   <inertia  izz="9e-05"  iyy="7.8e-05"  ixx="7.8e-05"  ixy="-1.3e-05"  ixz="-0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.1546319456101627e-17 0.0 0.052"  rpy="-0.0 1.5707963267948966 0.0" />
+   <material  name="red" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/90-joint.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_10_fixed" >
+  <parent  link="linkMod_9" />
+  <child  link="jointMod_10" />
+  <origin  xyz="1.1102230246251566e-17 0.0 0.05"  rpy="0 0 0" />
+  <axis  xyz="0.0 0.0 1.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="connMod_11" >
+  <inertial >
+   <origin  xyz="-1.3766765505351941e-17 -0.062 0.0"  rpy="0.0 0.0 1.5707963267948963" />
+   <mass  value="0.032" />
+   <inertia  izz="1.2e-05"  iyy="1.1e-05"  ixx="2.1e-05"  ixy="0.0"  ixz="0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.3766765505351941e-17 -0.062 0.0"  rpy="0.0 0.0 1.5707963267948963" />
+   <material  name="white" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/connector-0.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="revolute"  name="joint_11_revolute" >
+  <parent  link="jointMod_10" />
+  <child  link="connMod_11" />
+  <origin  xyz="-1.1546319456101627e-17 -0.052 0.052"  rpy="0 0 0" />
+  <axis  xyz="0.0 -1.0 0.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <transmission  name="act_joint_11_revolute" >
+  <type  xmltext="SimpleTransmission" >
+   SimpleTransmission
+  </type>
+  <actuator  name="trans_joint_11_revolute" >
+   <mechanicalreduction  xmltext="1" >
+    1
+   </mechanicalreduction>
+  </actuator>
+  <joint  name="joint_11_revolute" />
+ </transmission>
+ <link  name="linkMod_12" >
+  <inertial >
+   <origin  xyz="-1.3766765505351941e-17 0.062 0.0"  rpy="0.0 0.0 -1.5707963267948963" />
+   <mass  value="0.05" />
+   <inertia  izz="1.6e-05"  iyy="1.3e-05"  ixx="8e-06"  ixy="0.0"  ixz="0.0"  iyz="0.0" />
+  </inertial>
+  <visual >
+   <origin  xyz="-1.3766765505351941e-17 0.062 0.0"  rpy="0.0 0.0 -1.5707963267948963" />
+   <material  name="blue" />
+   <geometry >
+    <mesh  scale="0.001 0.001 0.001"  filename="./meshes/link-50.obj" />
+   </geometry>
+  </visual>
+ </link>
+ <joint  type="fixed"  name="joint_12_fixed" >
+  <parent  link="connMod_11" />
+  <child  link="linkMod_12" />
+  <origin  xyz="-4.44089209850063e-19 -0.0020000000000000018 0.0"  rpy="0 0 0" />
+  <axis  xyz="-0.0 -1.0 0.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+ <link  name="eef" />
+ <joint  type="fixed"  name="eef_joint" >
+  <parent  link="linkMod_12" />
+  <child  link="eef" />
+  <origin  xyz="1.1102230246251566e-17 -0.05 0.0"  rpy="0 0 0" />
+  <axis  xyz="0.0 -1.0 0.0" />
+  <limit  upper="3.14"  effort="50"  lower="-3.14"  velocity="10" />
+ </joint>
+</robot>
+
