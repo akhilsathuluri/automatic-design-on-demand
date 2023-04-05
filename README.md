@@ -6,10 +6,8 @@ automatic-design-on-demand
 [![Github release](https://img.shields.io/github/release/akhilsathuluri/x-ray-tool)](https://github.com/akhilsathuluri/x-ray-tool/releases)
 [![Github issues](https://img.shields.io/github/issues/akhilsathuluri/x-ray-tool)](https://github.com/akhilsathuluri/x-ray-tool)
 
-
 <p float="middle">
-    <img src="https://github.com/akhilsathuluri/x-ray-tool/blob/main/screenshots/top-down-design.png" alt="Add img of modules" width="525"/>
-    <img src="https://github.com/akhilsathuluri/x-ray-tool/blob/main/screenshots/decomposing.png" alt="Add image of a composition" width="275"/>
+    <img src="https://github.com/akhilsathuluri/automatic-design-on-demand/blob/main/assets/robot_designDomain.png" alt="Image of a robot composition build with a given set of modules"/>
 </p>
 
 The `automatic-design-on-demand` is a Python based library to generate robot compositions using a prescribed set of modules. This library is developed and maintained by the [Robot Systems Group, Laboratory for Product Development and Lightweight Design, TU Munich](https://www.mec.ed.tum.de/en/lpl/research/research-groups/robot-systems/). It allows users to test their search algorithms or create interesting robot architectures by combining 3D-printable modules. The generated robot compositions can be simulated using the [Drake robotics toolbox](https://drake.mit.edu/).
