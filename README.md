@@ -1,10 +1,10 @@
 automatic-design-on-demand
 ========
 
-[![Github license](https://img.shields.io/github/license/akhilsathuluri/x-ray-tool)](https://github.com/akhilsathuluri/x-ray-tool)
-[![python](https://img.shields.io/badge/python-3.8-green)](https://github.com/akhilsathuluri/x-ray-tool)
-[![Github release](https://img.shields.io/github/release/akhilsathuluri/x-ray-tool)](https://github.com/akhilsathuluri/x-ray-tool/releases)
-[![Github issues](https://img.shields.io/github/issues/akhilsathuluri/x-ray-tool)](https://github.com/akhilsathuluri/x-ray-tool)
+[![Github license](https://img.shields.io/github/license/akhilsathuluri/automatic-design-on-demand)](https://github.com/akhilsathuluri/automatic-design-on-demand/blob/main/LICENSE)
+[![python](https://img.shields.io/badge/python-3.8-green)](https://github.com/akhilsathuluri/automatic-design-on-demand/)
+[![Github release](https://img.shields.io/github/v/release/akhilsathuluri/automatic-design-on-demand)](https://github.com/akhilsathuluri/automatic-design-on-demand/releases)
+[![Github issues](https://img.shields.io/github/issues/akhilsathuluri/automatic-design-on-demand)](https://github.com/akhilsathuluri/automatic-design-on-demand/issues)
 
 <table>
   <tr>
