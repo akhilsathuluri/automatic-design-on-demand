@@ -18,6 +18,9 @@ The `automatic-design-on-demand` is a Python based library to generate robot com
   </tr>
 </table>
 
+## Physically realised prototype
+
+https://user-images.githubusercontent.com/12780967/230316071-202554d5-281e-484d-b2e3-fa27d7017543.mp4
 
 ## Platform
 Tested with Python 3.8 on:
