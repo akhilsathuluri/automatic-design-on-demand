@@ -35,3 +35,22 @@ An example demonstrating the usage and problem setup to find a robot composition
 
 ## Help
 Use the `docs` folder present within the repo or raise an [issue](https://github.com/akhilsathuluri/automatic-design-on-demand/issues) for help.
+
+## Citation
+You can see how to use this library for the automatic design of low-cost lightweight modular robots [here](https://www.mdpi.com/2218-6581/12/4/91)
+
+If you use this library or find the documentation useful for your research, consider citing the work as:
+```
+@Article{robotics12040091,
+AUTHOR = {Sathuluri, Akhil and Sureshbabu, Anand Vazhapilli and Frank, Jintin and Amm, Maximilian and Zimmermann, Markus},
+TITLE = {Computational Systems Design of Low-Cost Lightweight Robots},
+JOURNAL = {Robotics},
+VOLUME = {12},
+YEAR = {2023},
+NUMBER = {4},
+ARTICLE-NUMBER = {91},
+URL = {https://www.mdpi.com/2218-6581/12/4/91},
+ISSN = {2218-6581},
+DOI = {10.3390/robotics12040091}
+}
+```
